@@ -195,6 +195,9 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
 function getTail(arr, n) {
+  if (n <= 0) {
+    return [];
+  }
   return arr.slice(-n);
 }
 
@@ -292,7 +295,7 @@ function flattenArray(/* nestedArray */) {
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-  return arr.map((x) => childrenSelector(x)).flat();
+  return arr.flatMap(childrenSelector);
 }
 
 /**
